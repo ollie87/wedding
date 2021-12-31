@@ -41,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     p {
         color:  ${({ theme: { colors } }) => colors.grey_dark};
     }
-    input, select {
+    input, select, textarea {
         font-family: 'Roboto Slab', serif;
     }
 `
