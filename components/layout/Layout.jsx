@@ -11,7 +11,7 @@ const Layout = props => {
             <GlobalStyle theme={theme} />
             <ThemeProvider theme={theme}>
                 <main className='grid grid-flow-row-dense grid-cols-1 grid-rows-1'>
-                    <div className='container mx-auto'>
+                    <div className='container mx-auto justify-center'>
                         {props.children}
                     </div>
                 </main>
