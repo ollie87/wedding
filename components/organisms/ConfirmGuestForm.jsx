@@ -8,13 +8,19 @@ import { AGE_TYPES } from '../../constants/age-types';
 import { MENU_TYPES_OPTIONS } from '../../constants/menu-types';
 import TextAreaField from '../molecules/TextAreaField';
 import { InputSubmit } from '../atoms/input-submit';
+import firebase from '../../firebase/firebase';
 
 export default function ConfirmGuestForm() {
     const [guest, saveGuest] = useState(INITIAL_GUEST);
     const {name, surname1, surname2, age, allergies, menu, bus} = guest
-    const confirmGuest = e => {
+    const confirmGuest = async(e) => {
         e.preventDefault()
-        console.log('confirm guest...')
+        try {
+            const guestCreated = await firebase.confirmGuest(guest);
+            console.log('creado: ', guestCreated)
+        } catch(error) {
+            console.log('ERROR al crear el usuario: ', error);
+        }
     }
     const handleChange = e => {
         console.log('Target: ', e.target.value)
@@ -23,7 +29,6 @@ export default function ConfirmGuestForm() {
         } else {
             saveGuest({ ...guest, [e.target.name]: e.target.value });
         }
-        
     }
     return (
         <>

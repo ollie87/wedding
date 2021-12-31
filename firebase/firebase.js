@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 import firebaseConfig from "./config";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc  } from "firebase/firestore";
 
 
 class Firebase {
@@ -9,13 +9,12 @@ class Firebase {
         initializeApp(firebaseConfig);
         this.auth = getAuth()
         this.db = getFirestore();
-        console.log('Auth: ', this.auth)
+        this.collection = 'guests'
     }
 
     async confirmGuest (guest) {
         try {
-            const docRef = await addDoc(collection(this.db, "guests"), guest);
-            console.log("Document written with ID: ", docRef.id);
+            return await addDoc(collection(this.db, this.collection), {...guest, created: Date.now()});
         } catch (e) {
             console.error("Error adding document: ", e);
         }
