@@ -23,6 +23,9 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 700;
         color:  ${({ theme: { colors } }) => colors.grey_darkest};
     }
+    label {
+        font-family: 'Roboto Slab', serif;
+    }
     h3 {
         font-family: 'PT Sans', serif;
         color:  ${({ theme: { colors } }) => colors.grey_medium};
@@ -37,5 +40,8 @@ export const GlobalStyle = createGlobalStyle`
     }
     p {
         color:  ${({ theme: { colors } }) => colors.grey_dark};
+    }
+    input, select {
+        font-family: 'Roboto Slab', serif;
     }
 `

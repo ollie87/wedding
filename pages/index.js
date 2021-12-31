@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import ConfirmGuestForm from '../components/organisms/ConfirmGuestForm';
 
 export default function Home() {
   const { t } = useTranslation('home')
@@ -10,6 +11,7 @@ export default function Home() {
       <p>
         { t('this-works') }
       </p>
+      <ConfirmGuestForm />
     </div>
   );
 };

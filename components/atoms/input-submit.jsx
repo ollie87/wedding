@@ -1,18 +1,19 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components';
 
 export const InputSubmit = styled.input`
-    background-color: var(--naranja);
-    width: 100%;
-    padding: 1.5rem;
+    background-color: ${({ theme: { colors } }) => colors.white};
+    width: 150px;
+    height: 40px;
     text-align: center;
-    color: #FFF;
+    color: ${({ theme: { colors } }) => colors.primary};
     font-size: 1.8rem;
-    text-transform: uppercase;
-    border: none;
     font-family: 'PT Sans', sans-serif;
     font-weight: 700;
+    border: 1px solid ${({ theme: { colors } }) => colors.primary};
 
     &:hover {
         cursor: pointer;
+        background-color: ${({ theme: { colors } }) => colors.primary};
+        color: ${({ theme: { colors } }) => colors.white};
     }
 `

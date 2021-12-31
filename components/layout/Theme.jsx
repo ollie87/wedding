@@ -6,6 +6,12 @@ export const theme = {
         grey_medium: '#AFA8A3',
         grey_soft: '#DEDEDE',
         grey_light: '#EFEFEF',
-        primary: 'red',
+        white: '#fff',
+        primary: '#B57EDC',
+        secondary: '#DCB57E',
+        tertiary: '#DC867E'
+    },
+    fonts: {
+        primary: 'Roboto Slab'
     }
 };

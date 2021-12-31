@@ -1,0 +1,17 @@
+{
+    "ages": {
+        "adult": "Adulto",
+        "child": "Niño",
+        "baby": "Bebé"
+    },
+    "menus": {
+        "clasic": "Clásico",
+        "vegan": "Vegano",
+        "vegetarian": "Vegetariano",
+        "childish": "Infantil"
+    },
+    "inputs": {
+        "name": "Nombre",
+        "name-placeholder": "Tu nombre"
+    }
+}

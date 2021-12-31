@@ -1,7 +1,12 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components';
 
 export const Form = styled.form`
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 650px;
     width: 95%;
-    margin: 5rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
 `
