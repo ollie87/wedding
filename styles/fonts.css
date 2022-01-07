@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "Donitta";
+    src: url("/fonts/Donitta/Donitta.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+@font-face {
+    font-family: "Casta-Thin";
+    src: url("/fonts/Casta-2/Casta-Thin.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Casta-ThinSlanted";
+    src: url("/fonts/Casta-2/Casta-ThinSlanted.otf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
