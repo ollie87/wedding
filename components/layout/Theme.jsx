@@ -7,8 +7,8 @@ export const theme = {
         grey_soft: '#DEDEDE',
         grey_light: '#EFEFEF',
         white: '#fff',
-        primary: '#B57EDC',
-        secondary: '#DCB57E',
+        primary: '#4c2963',
+        secondary: '#ca8c6c',
         tertiary: '#DC867E'
     },
     fonts: {
