@@ -9,6 +9,7 @@ import { MENU_TYPES_OPTIONS } from '../../constants/menu-types';
 import TextAreaField from '../molecules/TextAreaField';
 import { InputSubmit } from '../atoms/input-submit';
 import firebase from '../../firebase/firebase';
+import { Title1 } from '../atoms/title-1';
 
 export default function ConfirmGuestForm() {
     const [guest, saveGuest] = useState(INITIAL_GUEST);
@@ -31,63 +32,62 @@ export default function ConfirmGuestForm() {
         }
     }
     return (
-        <>
-            <Form onSubmit={confirmGuest} noValidate>
-                <InputField
-                    type="text"
-                    value={name}
-                    label='Nombre:'
-                    name="name"
-                    onChange={handleChange}
+        <Form onSubmit={confirmGuest} noValidate>
+            <Title1>Formulario</Title1>
+            <InputField
+                type="text"
+                value={name}
+                label='Nombre:'
+                name="name"
+                onChange={handleChange}
+            />
+            <InputField
+                type="text"
+                value={surname1}
+                label='Primer apellido:'
+                name="surname1"
+                onChange={handleChange}
+            />
+            <InputField
+                type="text"
+                value={surname2}
+                label='Segundo apellido:'
+                name="surname2"
+                onChange={handleChange}
+            />
+            <TextAreaField
+                value={allergies}
+                label='Alergias e intolerancias'
+                name="allergies"
+                onChange={handleChange}
+            />
+            <SelectField
+                name='age'
+                label='Edad:'
+                value={age}
+                options={AGE_TYPES}
+                onChange={handleChange}
+            />
+            <SelectField
+                name='menu'
+                label='Tipo de menú:'
+                value={menu}
+                options={MENU_TYPES_OPTIONS}
+                onChange={handleChange}
+            />
+            <InputCheckbox
+                value={bus}
+                label='¿Vas a usar el autobús?'
+                name="bus"
+                id="bus"
+                onChange={handleChange}
+            />
+            <div className='flex flex-row w-full justify-end'>
+                <InputSubmit
+                    type="submit"
+                    value="Enviar"
                 />
-                <InputField
-                    type="text"
-                    value={surname1}
-                    label='Primer apellido:'
-                    name="surname1"
-                    onChange={handleChange}
-                />
-                <InputField
-                    type="text"
-                    value={surname2}
-                    label='Segundo apellido:'
-                    name="surname2"
-                    onChange={handleChange}
-                />
-                <TextAreaField
-                    value={allergies}
-                    label='Alergias e intolerancias'
-                    name="allergies"
-                    onChange={handleChange}
-                 />
-                <SelectField
-                    name='age'
-                    label='Edad:'
-                    value={age}
-                    options={AGE_TYPES}
-                    onChange={handleChange}
-                />
-                <SelectField
-                    name='menu'
-                    label='Tipo de menú:'
-                    value={menu}
-                    options={MENU_TYPES_OPTIONS}
-                    onChange={handleChange}
-                />
-                <InputCheckbox
-                    value={bus}
-                    label='¿Vas a usar el autobús?'
-                    name="bus"
-                    id="bus"
-                    onChange={handleChange}
-                />
-                <div className='flex flex-row w-full justify-end'>
-                    <InputSubmit
-                        type="submit"
-                        value="Enviar"
-                    />
-                </div>
-            </Form>
-        </>
+            </div>
+        </Form>
     )
 }
