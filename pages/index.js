@@ -1,4 +1,5 @@
 import ConfirmGuestForm from '../components/organisms/ConfirmGuestForm';
+import Date from '../components/organisms/Date';
 import Header from '../components/organisms/Header';
 import Welcome from '../components/organisms/Welcome';
 
@@ -10,6 +11,9 @@ export default function Home() {
       </section>
       <section className='flex basis-full justify-center'>
         <Welcome />
+      </section>
+      <section className='flex basis-full justify-center'>
+        <Date />
       </section>
       <section className='flex basis-full justify-center'>
         <ConfirmGuestForm />
