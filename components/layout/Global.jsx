@@ -29,7 +29,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 20px;
     }
     h3 {
-        font-family: 'PT Sans', serif;
+        font-family: 'Casta-Thin', serif;
         color:  ${({ theme: { colors } }) => colors.grey_medium};
     }
     ul {
