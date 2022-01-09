@@ -42,6 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     p {
         color:  ${({ theme: { colors } }) => colors.grey_dark};
+        font-size: 20px;
     }
     input, select, textarea {
         font-family: 'Casta-Thin', serif;
