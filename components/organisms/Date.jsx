@@ -7,7 +7,7 @@ import { Title3 } from "../atoms/title-3";
 export default function Date() {
     return(<DateStyle>
         <div className="flex basis-full justify-center h-full items-center">
-            <div style={{width: '500px', height: '300px', position: 'relative'}}>
+            <div className="mt-20" style={{width: '500px', height: '300px', position: 'relative'}}>
                 <Title2>La cita</Title2>
                 <Title3>27 Agosto 2022</Title3>
                 <ParagraphWhiteLg className="mb-8">Restaurante El Bohío, Puente Duero.</ParagraphWhiteLg>
