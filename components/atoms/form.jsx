@@ -10,4 +10,5 @@ export const Form = styled.form`
     align-items: center;
     align-self: center;
     font-family: 'Donitta';
+    padding: 1rem 0 4rem 0;
 `
