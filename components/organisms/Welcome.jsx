@@ -1,6 +1,17 @@
+import Image from "next/image";
 import { Paragraph } from "../atoms/paragraph";
 import { Title1 } from "../atoms/title-1";
+import welcome from '../../public/img/espigas_bienvenidos.svg'
+import styled from 'styled-components';
 
+const ImageContainer = styled.div`
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1536px;
+`
 export default function Welcome() {
     return (
         <div className="flex flex-col basis-full justify-center items-center">
@@ -14,6 +25,13 @@ export default function Welcome() {
                     Una cosa importante, en la sección asistencia puedes confirmar si vas a la boda o no, intolerancias, alergias o dieta especial (vegetariana o vegana). Confírmanos lo antes posible por favor, que así organizarlo todo nos será mucho más fácil.<br /><br />
                     Disfruta la web y nos vemos muy pronto, mil besos!
                 </Paragraph>
+                <ImageContainer>
+                    <Image
+                        src={welcome}
+                        alt=''
+                        width={120}
+                    />
+                </ImageContainer>
             </div>
         </div>
         
