@@ -6,4 +6,8 @@ export const HeaderStyle = styled.div`
     background: url("/img/headerbg.jpg");
     background-position: center;
     background-size: 100% auto;
+    div {
+        width: 100%;
+        backdrop-filter: blur(4px);
+    }
 `
