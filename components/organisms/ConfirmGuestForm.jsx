@@ -10,6 +10,18 @@ import TextAreaField from '../molecules/TextAreaField';
 import { InputSubmit } from '../atoms/input-submit';
 import firebase from '../../firebase/firebase';
 import { Title1 } from '../atoms/title-1';
+import styled from 'styled-components';
+import Image from 'next/image';
+import formImage from '../../public/img/espiga_formulario.svg'
+
+const ImageContainer = styled.div`
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1536px;
+`
 
 export default function ConfirmGuestForm() {
     const [guest, saveGuest] = useState(INITIAL_GUEST);
@@ -88,6 +100,13 @@ export default function ConfirmGuestForm() {
                     value="Enviar"
                 />
             </div>
+            <ImageContainer>
+                <Image
+                    src={formImage}
+                    alt=''
+                    width={120}
+                />
+            </ImageContainer>
         </Form>
     )
 }
