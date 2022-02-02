@@ -11,4 +11,15 @@ export const HeaderStyle = styled.div`
         width: 100%;
         backdrop-filter: blur(4px);
     }
+    .img-header-container {
+        width: 300px;
+        position: relative;
+    }
+    @media (max-width: 768px) {
+        height: 150px;
+        background-position-y: 100%;
+        .img-header-container {
+            width: 100px;
+        }
+    }
 `
