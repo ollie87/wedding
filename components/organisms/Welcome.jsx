@@ -11,6 +11,11 @@ const ImageContainer = styled.div`
     align-items: flex-end;
     width: 100%;
     max-width: 1536px;
+    z-index: -1;
+    width: 120;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 export default function Welcome() {
     return (
