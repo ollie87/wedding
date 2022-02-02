@@ -10,7 +10,7 @@ const Layout = props => {
             <HeadComponent />
             <GlobalStyle theme={theme} />
             <ThemeProvider theme={theme}>
-                <main className='grid grid-flow-row-dense grid-cols-1 grid-rows-1'>
+                <main className='lg:grid lg:grid-flow-row-dense lg:grid-cols-1 lg:grid-rows-1'>
                     <div className='container mx-auto justify-center'>
                         {props.children}
                     </div>
