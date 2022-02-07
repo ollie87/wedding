@@ -5,8 +5,8 @@ const TextAreaField = ({name, label, type, value, onChange, cols}) => {
     const defaultCols = 5
     const textAreaCols = cols ? cols : defaultCols
     return (
-        <TextAreaStyle className='flex flex-row gap-6 w-full'>
-            <div className='basis-2/6 text-right'>
+        <TextAreaStyle className='flex flex-col md:flex-row gap-6 w-full'>
+            <div className='basis-2/6 text-left md:text-right'>
                 <label>{label}</label>
             </div>
             <div className='basis-4/6'>

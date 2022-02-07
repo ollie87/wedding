@@ -4,10 +4,10 @@ import { CheckboxStyle } from '../atoms/checkbox-style';
 const InputCheckbox = ({name, id, label, value, onChange}) => {
     return (
         <CheckboxStyle className='flex flex-row gap-6 w-full'>
-            <div className='basis-2/6 text-right'>
+            <div className='basis-4/6 md:basis-2/6 text-left md:text-right'>
                 <label htmlFor={id}>{label}</label>
             </div>
-            <div className='basis-4/6'>
+            <div className='basis-2/6 md:basis-4/6'>
                 <div className="container">
                     <input
                         type='checkbox'

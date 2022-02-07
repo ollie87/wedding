@@ -21,6 +21,10 @@ const ImageContainer = styled.div`
     align-items: flex-start;
     width: 100%;
     max-width: 1536px;
+    z-index: -1;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export default function ConfirmGuestForm() {
@@ -94,7 +98,7 @@ export default function ConfirmGuestForm() {
                 id="bus"
                 onChange={handleChange}
             />
-            <div className='flex flex-row w-full justify-end'>
+            <div className='flex flex-row w-full justify-center md:justify-end'>
                 <InputSubmit
                     type="submit"
                     value="Enviar"
