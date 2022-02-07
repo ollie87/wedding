@@ -9,4 +9,8 @@ export const DateStyle = styled.div`
     background-position-y: 32%;
     filter: saturate(0.4);
     opacity: 90%;
+    @media (max-width: 768px) {
+        padding-top: 4rem;
+        height: 250px;
+    }
 `
