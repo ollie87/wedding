@@ -10,7 +10,7 @@ export default function RoadMapTextRight({texts}) {
                     <RoadMapTextTime>{texts.hour}</RoadMapTextTime>
                     <RoadMapTextTime>{texts.mins}</RoadMapTextTime>
                 </div>
-                <div className="w-[28rem]">
+                <div className="w-full lg:w-[28rem]">
                     <RoadMapTextPrimary>{texts.primary}</RoadMapTextPrimary>
                     <RoadMapTextSecondary>{texts.secondary}</RoadMapTextSecondary>
                 </div>

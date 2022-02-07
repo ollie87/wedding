@@ -13,4 +13,14 @@ export const RoadMapTextBus = styled.h3`
         background:#fff; 
         padding: 0 10px; 
     }
+
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+        border-bottom: unset;
+        margin: 0;
+        line-height: 2rem;
+        span {
+            
+        }
+    }
 ` 

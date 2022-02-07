@@ -6,7 +6,7 @@ import { RoadMapTextTime } from "../atoms/road-map-text-time";
 export default function RoadMapTextLeft({texts}) {
     return(
             <div className="flex gap-4">
-                <div className="w-[28rem] text-right">
+                <div className="w-full lg:w-[28rem] text-right">
                     <RoadMapTextPrimary>{texts.primary}</RoadMapTextPrimary>
                     <RoadMapTextSecondary>{texts.secondary}</RoadMapTextSecondary>
                 </div>

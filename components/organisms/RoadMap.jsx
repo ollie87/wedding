@@ -8,7 +8,6 @@ import tarta from '../../public/img/tarta.svg';
 import musica from '../../public/img/musica.svg'
 import RoadMapTextRight from "../molecules/RoadMapTextRight";
 import RoadMapTextLeft from "../molecules/RoadMapTextLeft";
-import { RoadMapTextTime } from "../atoms/road-map-text-time";
 import { RoadMapTextBus } from "../atoms/road-map-bus";
 
 export default function RoadMap() {
@@ -31,7 +30,7 @@ export default function RoadMap() {
         secondary: 'en salón Long Island'
     }
     const drinkTexts = {
-        hour: '17h',
+        hour: '19h',
         mins: '30',
         primary: 'DJ & Barra libre',
         secondary: 'en discoteca o jardines (lo que el tiempo permita)'
@@ -40,9 +39,9 @@ export default function RoadMap() {
         <div className="flex flex-col basis-full justify-center">
             <Title1>Hoja de ruta</Title1>
             <div className="grid grid-rows-4 grid-flow-col auto-cols-min gap-4 justify-center">
-                <div className="h-44">
+                <div className="h-20 md:h-44">
                     <div className="flex justify-end items-center">
-                        <div className="w-28 rotate-45">
+                        <div className="w-14 md:w-28 rotate-45 mt-4 md:mt:0">
                             <Image
                                 src={anillos}
                                 alt=''
@@ -50,14 +49,14 @@ export default function RoadMap() {
                         </div>
                     </div>
                 </div>
-                <div className="h-48 flex justify-start items-center pt-5">
+                <div className="h-20 md:h-48 flex justify-start items-center pt-5">
                     <RoadMapTextLeft
                         texts={cocktailTexts}
                     />
                 </div>
-                <div className="h-48 pt-8">
+                <div className="h-20 md:h-48 pt-4 md:pt-8">
                     <div className="flex justify-end items-center">
-                        <div className="w-28">
+                        <div className="w-14 md:w-28">
                             <Image
                                 src={tarta}
                                 alt=''
@@ -65,27 +64,27 @@ export default function RoadMap() {
                         </div>
                     </div>
                 </div>
-                <div className="h-48 flex justify-start items-end mt-8">
+                <div className="h-20 md:h-48 flex justify-start items-end md:mt-8">
                     <RoadMapTextLeft
                         texts={drinkTexts}
                     />
                 </div>
                 <div className="row-span-4 flex w-full justify-center pt-8 pb-8">
-                    <div className="w-10">
+                    <div className="w-5 md:w-10">
                         <Image
                             src={separator}
                             alt=''
                         />
                     </div>
                 </div>
-                <div className="h-48 pt-5">
+                <div className="h-20 md:h-48 pt-5">
                     <RoadMapTextRight
                         texts={ceremonyTexts}
                     />
                 </div>
-                <div className="h-48">
+                <div className="h-20 md:h-48">
                     <div className="flex justify-start items-center">
-                        <div>
+                        <div className="w-14 md:w-28">
                             <Image
                                 src={copas}
                                 alt=''
@@ -98,9 +97,9 @@ export default function RoadMap() {
                         texts={lunchTexts}
                     />
                 </div>
-                <div className="h-48 mt-5">
+                <div className="h-20 md:h-48 mt-5">
                     <div className="flex justify-start items-end h-full">
-                        <div>
+                        <div className="w-14 md:w-28">
                             <Image
                                 src={musica}
                                 alt=''
@@ -109,7 +108,7 @@ export default function RoadMap() {
                     </div>
                 </div>
             </div>
-            <div className="w-full mt-32">
+            <div className="w-full mt-14 md:mt-32">
                 <RoadMapTextBus><span>Habrá servicio de buses desde Valladolid al Bohío tanto para subir como para bajar.</span></RoadMapTextBus>
             </div>
         </div>
