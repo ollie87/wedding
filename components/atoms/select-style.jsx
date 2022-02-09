@@ -8,6 +8,7 @@ export const SelectStyle = styled.div`
         position: absolute;
         left: -9999em;
         top: -9999em;
+        visibility: hidden;
         
         & + label {
             padding: .5em 1em;
