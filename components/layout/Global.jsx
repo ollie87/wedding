@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
         color:  ${({ theme: { colors } }) => colors.grey_dark};
         font-size: 20px;
     }
-    input, select, textarea {
+    input, select, textarea, li {
         font-family: 'Casta-Thin', serif;
     }
 `

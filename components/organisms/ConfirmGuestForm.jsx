@@ -13,6 +13,8 @@ import { Title1 } from '../atoms/title-1';
 import styled from 'styled-components';
 import Image from 'next/image';
 import formImage from '../../public/img/espiga_formulario.svg'
+import { GuestList } from '../atoms/guest-list';
+import { ButtonNewGuest } from '../atoms/button-new-guest';
 
 const ImageContainer = styled.div`
     position: absolute;
@@ -30,10 +32,12 @@ const ImageContainer = styled.div`
 export default function ConfirmGuestForm() {
     const [guest, saveGuest] = useState(INITIAL_GUEST);
     const {name, surname1, surname2, age, allergies, menu, bus} = guest
+    const [isFormSending, saveIsFormSending] = useState(false)
     const confirmGuest = async(e) => {
         e.preventDefault()
         try {
             const guestCreated = await firebase.confirmGuest(guest);
+            saveIsFormSending(true)
             console.log('creado: ', guestCreated)
         } catch(error) {
             console.log('ERROR al crear el usuario: ', error);
@@ -47,63 +51,112 @@ export default function ConfirmGuestForm() {
             saveGuest({ ...guest, [e.target.name]: e.target.value });
         }
     }
+    const getBus = () => {
+        return guest.bus ? 'Si' : 'No'
+    }
+    const getAge = () => {
+        if (!guest.age) {
+            return ''
+        }
+        const age = AGE_TYPES.find(age => age.id === Number(guest.age))
+        if (age) {
+            return age.name
+        } else {
+            return ''
+        }
+    }
+    const getMenu = () => {
+        if (!guest.menu) {
+            return ''
+        }
+        const menu = MENU_TYPES_OPTIONS.find(age => age.id === Number(guest.menu))
+        if (menu) {
+            return menu.name
+        } else {
+            return ''
+        }
+    }
+    const newGuest = () => {
+        saveGuest(INITIAL_GUEST)
+        saveIsFormSending(false)
+    }
     return (
-        <Form onSubmit={confirmGuest} noValidate>
-            <Title1>Formulario</Title1>
-            <InputField
-                type="text"
-                value={name}
-                label='Nombre:'
-                name="name"
-                onChange={handleChange}
-            />
-            <InputField
-                type="text"
-                value={surname1}
-                label='Primer apellido:'
-                name="surname1"
-                onChange={handleChange}
-            />
-            <InputField
-                type="text"
-                value={surname2}
-                label='Segundo apellido:'
-                name="surname2"
-                onChange={handleChange}
-            />
-            <TextAreaField
-                value={allergies}
-                label='Alergias e intolerancias'
-                name="allergies"
-                onChange={handleChange}
-            />
-            <SelectField
-                name='age'
-                label='Edad:'
-                value={age}
-                options={AGE_TYPES}
-                onChange={handleChange}
-            />
-            <SelectField
-                name='menu'
-                label='Tipo de menú:'
-                value={menu}
-                options={MENU_TYPES_OPTIONS}
-                onChange={handleChange}
-            />
-            <InputCheckbox
-                value={bus}
-                label='¿Vas a usar el autobús?'
-                name="bus"
-                id="bus"
-                onChange={handleChange}
-            />
-            <div className='flex flex-row w-full justify-center md:justify-end'>
-                <InputSubmit
-                    type="submit"
-                    value="Enviar"
-                />
-            </div>
+        <>
+            { isFormSending ?
+                <div>
+                    <Title1>Formulario enviado</Title1>
+                    <GuestList>
+                        <li><span>Nombre: </span>{ guest.name || '' }</li>
+                        <li><span>Primer apellido: </span>{ guest.surname1 || '' }</li>
+                        <li><span>Segundo apellido: </span>{ guest.surname2 || '' }</li>
+                        <li><span>Alergias: </span>{ guest.allergies || '' }</li>
+                        <li><span>Edad: </span>{ getAge() }</li>
+                        <li><span>Menú: </span>{ getMenu() }</li>
+                        <li><span>Autobús: </span>{ getBus() }</li>
+                    </GuestList>
+                    <div className='flex flex-row w-full justify-center md:justify-center mb-6'>
+                        <ButtonNewGuest onClick={newGuest}>Añadir otro invitado</ButtonNewGuest>
+                    </div>
+                </div>
+                
+                : <Form onSubmit={confirmGuest} noValidate>
+                    <Title1>Formulario</Title1>
+                    <InputField
+                        type="text"
+                        value={name}
+                        label='Nombre:'
+                        name="name"
+                        onChange={handleChange}
+                    />
+                    <InputField
+                        type="text"
+                        value={surname1}
+                        label='Primer apellido:'
+                        name="surname1"
+                        onChange={handleChange}
+                    />
+                    <InputField
+                        type="text"
+                        value={surname2}
+                        label='Segundo apellido:'
+                        name="surname2"
+                        onChange={handleChange}
+                    />
+                    <TextAreaField
+                        value={allergies}
+                        label='Alergias e intolerancias'
+                        name="allergies"
+                        onChange={handleChange}
+                    />
+                    <SelectField
+                        name='age'
+                        label='Edad:'
+                        value={age}
+                        options={AGE_TYPES}
+                        onChange={handleChange}
+                    />
+                    <SelectField
+                        name='menu'
+                        label='Tipo de menú:'
+                        value={menu}
+                        options={MENU_TYPES_OPTIONS}
+                        onChange={handleChange}
+                    />
+                    <InputCheckbox
+                        value={bus}
+                        label='¿Vas a usar el autobús?'
+                        name="bus"
+                        id="bus"
+                        onChange={handleChange}
+                    />
+                    <div className='flex flex-row w-full justify-center md:justify-end'>
+                        <InputSubmit
+                            type="submit"
+                            value="Enviar"
+                        />
+                    </div>
+                </Form>
+            }
             <ImageContainer>
                 <Image
                     src={formImage}
@@ -111,6 +164,9 @@ export default function ConfirmGuestForm() {
                     width={120}
                 />
             </ImageContainer>
-        </Form>
+        </>
+        
+            
+       
     )
 }
