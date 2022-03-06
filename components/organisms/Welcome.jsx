@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Paragraph } from "../atoms/paragraph";
 import { Title1 } from "../atoms/title-1";
+import { ImageCircle } from "../atoms/circle-image";
 import welcome from '../../public/img/espigas_bienvenidos.svg'
 import styled from 'styled-components';
+import imgWelcome from '../../public/img/img-welcome.jpg'
 
 const ImageContainer = styled.div`
     position: absolute;
@@ -22,6 +24,14 @@ export default function Welcome() {
         <div className="flex flex-col basis-full justify-center items-center">
             <div className="flex flex-col 2xl:w-7/12 md:w-full items-center">
                 <Title1>!Bienvenidos a nuestra boda!</Title1>
+                <ImageCircle>
+                    <Image
+                        alt=''
+                        src={imgWelcome} 
+                        layout="fill"
+                        objectFit="cover"
+                    /> 
+                </ImageCircle>
                 <Paragraph>
                     ¡Que sí! Que nos casamos<br />
                     (ya era hora)!!!<br /><br />															
