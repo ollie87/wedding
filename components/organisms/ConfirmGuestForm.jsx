@@ -3,7 +3,7 @@ import { Form } from '../atoms/form';
 import InputField from '../molecules/InputField';
 import InputCheckbox from '../molecules/InputCheckbox';
 import SelectField from '../molecules/SelectField';
-import { INITIAL_GUEST } from '../../constants/initial-guest'
+import { INITIAL_GUEST } from '../../constants/initial-guest';
 import { AGE_TYPES } from '../../constants/age-types';
 import { MENU_TYPES_OPTIONS } from '../../constants/menu-types';
 import TextAreaField from '../molecules/TextAreaField';
@@ -12,9 +12,10 @@ import firebase from '../../firebase/firebase';
 import { Title1 } from '../atoms/title-1';
 import styled from 'styled-components';
 import Image from 'next/image';
-import formImage from '../../public/img/espiga_formulario.svg'
+import formImage from '../../public/img/espiga_formulario.svg';
 import { GuestList } from '../atoms/guest-list';
 import { ButtonNewGuest } from '../atoms/button-new-guest';
+import { INITIAL_ERRORS } from '../../constants/initial-errors';
 
 const ImageContainer = styled.div`
     position: absolute;
@@ -31,20 +32,47 @@ const ImageContainer = styled.div`
 
 export default function ConfirmGuestForm() {
     const [guest, saveGuest] = useState(INITIAL_GUEST);
+    const [errors, saveError] = useState(INITIAL_ERRORS)
     const {name, surname1, surname2, age, allergies, menu, bus} = guest
     const [isFormSending, saveIsFormSending] = useState(false)
+    const isFormErrors = () => {
+        let hasError = false
+        const requiredText = '* Campo obligatorio'
+        let localErrors = INITIAL_ERRORS
+        saveError(INITIAL_ERRORS)
+        console.log('Validacion errores')
+        if (!guest.name) {
+            localErrors = {...localErrors, name: requiredText }
+            hasError = true
+        }
+        if (!guest.surname1) {
+            localErrors = {...localErrors, surname1: requiredText }
+            hasError = true
+        }
+        if (!guest.age) {
+            localErrors = {...localErrors, age: requiredText }
+            hasError = true
+        }
+        if (!guest.menu) {
+            localErrors = {...localErrors, menu: requiredText }
+            hasError = true
+        }
+        saveError(localErrors)
+        return hasError
+    }
     const confirmGuest = async(e) => {
         e.preventDefault()
         try {
+            if (isFormErrors()) {
+                return
+            }
             const guestCreated = await firebase.confirmGuest(guest);
             saveIsFormSending(true)
-            console.log('creado: ', guestCreated)
         } catch(error) {
             console.log('ERROR al crear el usuario: ', error);
         }
     }
     const handleChange = e => {
-        console.log('Target: ', e.target.value)
         if (e.target.name === 'bus') {
             saveGuest({ ...guest, [e.target.name]: e.target.checked });
         } else {
@@ -78,6 +106,7 @@ export default function ConfirmGuestForm() {
     }
     const newGuest = () => {
         saveGuest(INITIAL_GUEST)
+        saveError(INITIAL_ERRORS)
         saveIsFormSending(false)
     }
     return (
@@ -106,6 +135,7 @@ export default function ConfirmGuestForm() {
                         value={name}
                         label='Nombre:'
                         name="name"
+                        error={errors.name}
                         onChange={handleChange}
                     />
                     <InputField
@@ -113,6 +143,7 @@ export default function ConfirmGuestForm() {
                         value={surname1}
                         label='Primer apellido:'
                         name="surname1"
+                        error={errors.surname1}
                         onChange={handleChange}
                     />
                     <InputField
@@ -120,6 +151,7 @@ export default function ConfirmGuestForm() {
                         value={surname2}
                         label='Segundo apellido:'
                         name="surname2"
+                        error=""
                         onChange={handleChange}
                     />
                     <TextAreaField
@@ -133,6 +165,7 @@ export default function ConfirmGuestForm() {
                         label='Edad:'
                         value={age}
                         options={AGE_TYPES}
+                        error={errors.age}
                         onChange={handleChange}
                     />
                     <SelectField
@@ -140,6 +173,7 @@ export default function ConfirmGuestForm() {
                         label='Tipo de menú:'
                         value={menu}
                         options={MENU_TYPES_OPTIONS}
+                        error={errors.menu}
                         onChange={handleChange}
                     />
                     <InputCheckbox
