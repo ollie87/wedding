@@ -3,7 +3,7 @@ const CHILD_TYPE_ID = 2
 const BABY_TYPE_ID = 3
 const ADULT_TYPE_TEXT = 'Adulto'
 const CHILD_TYPE_TEXT = 'Niño'
-const BABY_TYPE_TEXT = 'Bebe'
+const BABY_TYPE_TEXT = 'Bebé'
 
 export const AGE_TYPES = [
     {

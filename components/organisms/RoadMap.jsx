@@ -21,7 +21,7 @@ export default function RoadMap() {
         hour: '14h',
         mins: '00',
         primary: 'Cocktail de bienvenida',
-        secondary: 'en jardines o salones y corner de make up maquillaje con dos profesionales'
+        secondary: 'en jardines o salones'
     }
     const lunchTexts = {
         hour: '16h',
