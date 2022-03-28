@@ -11,7 +11,7 @@ const SelectField = ({options, label, onChange, name, error}) => {
                 </div>
                 <div className='flex-wrap w-full md:basis-4/6 text-left md:text-right flex flex-row md:flex-row gap-3'>
                     {options.map (option => (
-                        <div key={option.id} value={option.id} className="mb-4 md:mb-0">
+                        <div key={option.id} value={option.id} className="mb-4">
                             <input 
                                 type='radio'
                                 name={name}
